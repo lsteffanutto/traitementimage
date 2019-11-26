@@ -1,7 +1,7 @@
 clear all
 close all
 A=imread('trame.bmp');
-figure, image(A), colormap(gray(256))
+figure, image(A), colormap(gray(256));
 [h,w]=size(A);
 B=log10(abs(fft2(A)));
 fx=linspace(0,1-1/w,w);

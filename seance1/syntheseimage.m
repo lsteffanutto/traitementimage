@@ -7,7 +7,7 @@ close all;
 %% VAR
 %image vrai couleur
 r = [1 0 1; 0 0 0; 1 0 1];
-g = [0 1 0; 1 0 1; 0 1 0];
+g = [0 1 0; 1 0 1; 0 1 0];https://fr.mathworks.com/matlabcentral/answers/1288-what-is-the-difference-between-image-and-imshow
 b = [0 0 0; 0 1 0; 0 0 0];
 
 %% TRAITEMENT
@@ -15,7 +15,7 @@ b = [0 0 0; 0 1 0; 0 0 0];
 img=cat(3,r,g,b); %concatene les 3 matrice dans la profondeur et dans l'ordre rgb
 
 %image couleur indexé
-img1=[0 1 4; 5 2 3];
+img1=[3 2 5; 3 2 5];
 
 %% FIGURE
 figure,image(img)

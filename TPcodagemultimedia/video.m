@@ -13,6 +13,7 @@ B=zeros(288,352,nbframe);
 fid = fopen('news30f.yuv');
 vid=[];
 %extraction luminance/chrominance + fabrication couleurs
+%YUV TO RGB
 for i=1:nbframe
     Y(:,:,i)= fread(fid,[352 288], 'uchar')';
     U(:,:,i)= imresize(fread(fid,[352/2 288/2], 'uchar'),2)'; %imresize(:,2); car 4:2:0

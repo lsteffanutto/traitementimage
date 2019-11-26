@@ -3,6 +3,7 @@ clear, close all, clc;
 A=double(imread('zidane.jpg'))/255;
 figure, imshow(A); %image normal
 title('image A');
+drawnow;
 
 [h,w,d]=size(A);
 H=ones(40)/1600;
@@ -17,4 +18,5 @@ mask = ones(h,w);
 mask((X-cx).^2+(Y-cy).^2<r^2)=0;
 figure, imshow(mask.*A + (1-mask).*A_floue);
 title('somme des 2 images');
+drawnow;
 

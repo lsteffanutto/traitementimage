@@ -1,7 +1,7 @@
 function [ R,G,B ] = disks( size, radius,dist )
 
 dxr=dist*cos(pi/6);
-dyr=-dist*sin(pi/6);
+dyr=-dist*sin(pi/6); % centre du premier cercle de couleur
 dxg=-dxr;
 dyg=dyr;
 dxb=0;
