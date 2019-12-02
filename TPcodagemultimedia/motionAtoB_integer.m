@@ -1,5 +1,6 @@
 function [Vx,Vy] = motionAtoB_integer(A,B,t,s)
 
+%t= taille du bloc (8x8) et s = taille fenetre de rech (15x15 donc -7:7)
 [h, w] = size(A);
 
 tx=t(1);
@@ -20,7 +21,7 @@ for j = 1:hV
     
     y = (j-1)*ty+1;
     
-    for j = 1:mV
+    for i = 1:wV
         
         x = (i-1)*tx+1;
         Bs = B(y+dty, x+dtx);
