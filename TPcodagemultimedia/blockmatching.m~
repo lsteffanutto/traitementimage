@@ -2,13 +2,13 @@ clear all;
 close all;
 clc;
 
-I1=double(imread('football000.ras'));
+I1=double(imread('football057.ras'));
 figure, imshow(uint8(I1));
 title('I1');
 drawnow;
 
 
-I2=double(imread('football001.ras'));
+I2=double(imread('football058.ras'));
 figure, imshow(uint8(I2));
 title('I2');
 drawnow;
@@ -50,34 +50,8 @@ hold off;
 
 %% Compensation du mouvement
 
-Err = I2-I1;
-entropie=myentropie(Err(:), 512); %différence inter pixel, valeur negative comme positibe -255;255
-
-%I2_compensé:
-%On parcourt les blocs de I2 en regardant quels bloc de I1 leur
-%correspondent (avant déplacement)
-%Puis on stock ces blocks trouvé à l'emplacement de I2
-%Prend point après déplacement en I2 et tu le mets à l'endroit de départ 
-% en I1
-%On prend en compte le déplacement avec Vx et Vy
-
-I_comp = motionCompensate_integer( I2,Vx,Vy );
-
-figure, imshow(uint8(I_comp));
-title('I_comp');
-drawnow;
-
-figure, imshow(uint8(I_comp));
-title('I_comp');
-drawnow;
+Err_img = 
 
 
 
-%Err_img = I2 - I1_comp; % vecteur de A qui se sont déplacé dans B
-
-
-
-%Err_img=A-B_comp
-%Err=A-B;
-%A
 
