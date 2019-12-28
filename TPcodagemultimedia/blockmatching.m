@@ -2,13 +2,13 @@ clear all;
 close all;
 clc;
 
-I1=double(imread('football000.ras'));
+I1=double(imread('football056.ras'));
 figure, imshow(uint8(I1));
 title('I1');
 drawnow;
 
 
-I2=double(imread('football001.ras'));
+I2=double(imread('football059.ras'));
 figure, imshow(uint8(I2));
 title('I2');
 drawnow;
@@ -61,23 +61,44 @@ entropie=myentropie(Err(:), 512); %différence inter pixel, valeur negative comm
 % en I1
 %On prend en compte le déplacement avec Vx et Vy
 
-I_comp = motionCompensate_integer( I2,Vx,Vy );
 
-figure, imshow(uint8(I_comp));
+%% Compensation
+
+I2_comp = motionCompensate_integer(I1,Vx,Vy );
+
+D1=I2-I1;
+
+entropie_I2=myentropie(I2,256)
+
+entropie_Diff_1_2=myentropie(D1,516)
+
+Diff_finale=I2_comp-I1;
+
+entropie_Diff_finale=myentropie(Diff_finale,512) %diff=>512
+
+figure, imshow(uint8(I2_comp));
 title('I_comp');
 drawnow;
 
-figure, imshow(uint8(I_comp));
-title('I_comp');
-drawnow;
 
 
 
-%Err_img = I2 - I1_comp; % vecteur de A qui se sont déplacé dans B
+% figure, imshow(uint8(I_comp));
+% title('I_comp');
+% drawnow;
 
+%Err_img = I2 - I_comp; % vecteur de A qui se sont déplacé dans B
 
+% figure, imshow(uint8(Err_img));
+% title('Err_img');
+% drawnow;
 
 %Err_img=A-B_comp
 %Err=A-B;
-%A
 
+%A_comp=motion
+
+I2_comp_bis = imresize(I2_comp,2);
+figure, imshow(uint8(I2_comp_bis));
+title('I2_comp_bis');
+drawnow;
